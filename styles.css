@@ -256,7 +256,22 @@ body {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: clamp(2rem, 10vw, 2.5rem);
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 0.85rem !important;
+    line-height: 1.4;
+  }
+
+  .hero-about {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .hero-image {
+    max-width: 220px;
   }
   
   .sticky-contact {
@@ -285,8 +300,10 @@ body {
 
 @media (max-width: 968px) {
   .hero-top-section {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
     text-align: center;
+    gap: 2rem;
   }
 
   .hero-contact {
@@ -294,12 +311,11 @@ body {
   }
 
   .hero-content {
-    order: 2;
     align-items: center;
   }
 
   .hero-image-wrapper {
-    order: 1;
+    margin-bottom: 1rem;
   }
 
   .hero-title {
