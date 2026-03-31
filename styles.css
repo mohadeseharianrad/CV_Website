@@ -44,7 +44,7 @@ body {
   padding-bottom: var(--space-xl);
   /* Page is a floating card inside html padding */
   border-radius: 30px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
   min-height: calc(100vh - calc(var(--space-sm) * 2));
 }
 
@@ -56,18 +56,22 @@ body {
   transform: translateX(-50%);
   width: calc(100% - var(--space-xl));
   max-width: 1200px;
-  background: rgba(255, 255, 255, 0.95); /* Header is a ribbon from the start */
+  background: rgba(255, 255, 255, 0.95);
+  /* Header is a ribbon from the start */
   backdrop-filter: blur(10px);
   z-index: 1000;
   padding: var(--space-sm) var(--space-lg);
-  border: 1px solid transparent; /* No border at first */
+  border: 1px solid transparent;
+  /* No border at first */
   border-radius: 40px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Soft shadow maintained */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  /* Soft shadow maintained */
   transition: all 0.4s ease;
 }
 
 .sticky-header.scrolled {
-  border-color: var(--color-nude-dark); /* Border appears after scroll */
+  border-color: var(--color-nude-dark);
+  /* Border appears after scroll */
 }
 
 .sticky-header-content {
@@ -185,6 +189,7 @@ body {
   color: var(--color-text);
   transition: color 0.3s ease;
 }
+
 .mobile-menu-btn:hover {
   color: var(--color-red);
 }
@@ -193,7 +198,7 @@ body {
   html {
     padding: var(--space-xs);
   }
-  
+
   body {
     margin: 0;
     padding-bottom: var(--space-lg);
@@ -273,12 +278,12 @@ body {
   .hero-image {
     max-width: 220px;
   }
-  
+
   .sticky-contact {
     gap: 0.5rem;
     flex-wrap: wrap;
   }
-  
+
   .sticky-contact a span {
     display: none;
   }
@@ -286,7 +291,7 @@ body {
   .info-card h2 {
     font-size: 2rem;
   }
-  
+
   .contact-box-link {
     font-size: 0.95rem;
     min-width: 100%;
@@ -335,6 +340,59 @@ body {
   .hero-image {
     max-width: 350px;
     box-shadow: 15px 15px 0px var(--color-nude-dark), 30px 30px 0px rgba(158, 27, 50, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-top-section {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: min-content; /* Squeezes container to exactly the width of "Mohadeseh" */
+  }
+
+  .hero-image-wrapper {
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 280px; /* Sensible mobile cutoff so it doesn't get unnaturally large */
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%; /* Matches exactly the bounding box */
+    box-shadow: none;
+    border-radius: 20px;
+  }
+
+  .hero-title, .hero-subtitle, .contact-boxes {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .hero-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero-contact {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .contact-box-link {
+    justify-content: flex-start;
   }
 }
 
@@ -467,7 +525,8 @@ body {
 /* Info Section (info.html moved to index.html) */
 
 .info-content {
-  max-width: 1200px; /* Match hero max-width */
+  max-width: 1200px;
+  /* Match hero max-width */
   margin: var(--space-xl) auto;
   padding: 0 5%;
   display: grid;
@@ -485,7 +544,8 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
   border: 1px solid var(--color-nude);
   transition: transform 0.3s ease;
-  height: 100%; /* Ensure cards match height in grid */
+  height: 100%;
+  /* Ensure cards match height in grid */
   display: flex;
   flex-direction: column;
 }
@@ -578,7 +638,8 @@ body {
   margin-bottom: 2rem;
 }
 
-.resume-item p, .accordion-content p {
+.resume-item p,
+.accordion-content p {
   text-align: justify;
 }
 
@@ -702,48 +763,205 @@ body {
   background-color: var(--color-red-dark);
   transform: translateY(-3px) scale(1.05);
 }
-@media print {
-  @page { size: A4 portrait; margin: 10mm; }
-  body { margin: 0; padding: 0; background: var(--color-white) !important; color: #000; font-size: 10pt; }
-  .sticky-header, .back-to-top, .hero-contact { display: none !important; }
-  
-  .hero { min-height: auto !important; padding: 0 !important; background: none !important; margin-bottom: 10px; }
-  .hero-container { gap: 1rem !important; margin: 0; }
-  .hero-top-section { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .hero-content { animation: none !important; width: 70%; }
-  .hero-title { font-size: 24pt !important; color: #000 !important; margin: 0; }
-  .hero-title span { color: var(--color-red) !important; }
-  .hero-subtitle { font-size: 11pt !important; color: #333 !important; max-width: 100%; margin-top: 5px; }
-  .hero-image-wrapper { animation: none !important; width: 25%; display: block; }
-  .hero-image { width: 100px; height: 100px; border-radius: 50% !important; box-shadow: none !important; transform: none !important; }
-  .about-wrapper { margin-top: 10px; }
-  .about-label { font-size: 12pt !important; color: var(--color-red) !important; margin-bottom: 5px; }
-  .hero-about { font-size: 9.5pt !important; color: #333 !important; line-height: 1.4 !important; }
 
-  .info-content { margin: 0 !important; padding: 0 !important; gap: 1rem !important; animation: none !important; }
-  .info-card { padding: 0 !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; transform: none !important; page-break-inside: auto; margin-bottom: 15px !important; }
-  .info-card h2 { display: none; } /* Hide the big "Resume" text in print if needed, or keep it */
-  
-  .resume-section { margin-bottom: 1.5rem !important; page-break-inside: avoid; }
-  .resume-section h3 { font-size: 14pt !important; color: var(--color-red) !important; padding-bottom: 2px; margin-bottom: 10px !important; border-bottom: 1px solid var(--color-nude-dark); margin-top: 10px; }
-  
-  .resume-item { margin-bottom: 10px !important; page-break-inside: avoid; }
-  .resume-item-title { font-size: 11pt !important; color: #000 !important; font-weight: bold; }
-  .resume-item-subtitle { font-size: 10pt !important; color: #444 !important; margin-bottom: 5px !important; }
-  .resume-item-date { background: none !important; border: 1px solid #ccc; padding: 0 5px; font-size: 9pt !important; color: #333 !important; border-radius: 4px; }
-  
-  .resume-list, .resume-item div { font-size: 9.5pt !important; color: #333 !important; line-height: 1.4 !important; }
-  .resume-list { margin-left: 1rem !important; }
-  
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-white) !important;
+    color: #000;
+    font-size: 10pt;
+  }
+
+  .sticky-header,
+  .back-to-top,
+  .hero-contact {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: auto !important;
+    padding: 0 !important;
+    background: none !important;
+    margin-bottom: 10px;
+  }
+
+  .hero-container {
+    gap: 1rem !important;
+    margin: 0;
+  }
+
+  .hero-top-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .hero-content {
+    animation: none !important;
+    width: 70%;
+  }
+
+  .hero-title {
+    font-size: 24pt !important;
+    color: #000 !important;
+    margin: 0;
+  }
+
+  .hero-title span {
+    color: var(--color-red) !important;
+  }
+
+  .hero-subtitle {
+    font-size: 11pt !important;
+    color: #333 !important;
+    max-width: 100%;
+    margin-top: 5px;
+  }
+
+  .hero-image-wrapper {
+    animation: none !important;
+    width: 25%;
+    display: block;
+  }
+
+  .hero-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .about-wrapper {
+    margin-top: 10px;
+  }
+
+  .about-label {
+    font-size: 12pt !important;
+    color: var(--color-red) !important;
+    margin-bottom: 5px;
+  }
+
+  .hero-about {
+    font-size: 9.5pt !important;
+    color: #333 !important;
+    line-height: 1.4 !important;
+  }
+
+  .info-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1rem !important;
+    animation: none !important;
+  }
+
+  .info-card {
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    page-break-inside: auto;
+    margin-bottom: 15px !important;
+  }
+
+  .info-card h2 {
+    display: none;
+  }
+
+  /* Hide the big "Resume" text in print if needed, or keep it */
+
+  .resume-section {
+    margin-bottom: 1.5rem !important;
+    page-break-inside: avoid;
+  }
+
+  .resume-section h3 {
+    font-size: 14pt !important;
+    color: var(--color-red) !important;
+    padding-bottom: 2px;
+    margin-bottom: 10px !important;
+    border-bottom: 1px solid var(--color-nude-dark);
+    margin-top: 10px;
+  }
+
+  .resume-item {
+    margin-bottom: 10px !important;
+    page-break-inside: avoid;
+  }
+
+  .resume-item-title {
+    font-size: 11pt !important;
+    color: #000 !important;
+    font-weight: bold;
+  }
+
+  .resume-item-subtitle {
+    font-size: 10pt !important;
+    color: #444 !important;
+    margin-bottom: 5px !important;
+  }
+
+  .resume-item-date {
+    background: none !important;
+    border: 1px solid #ccc;
+    padding: 0 5px;
+    font-size: 9pt !important;
+    color: #333 !important;
+    border-radius: 4px;
+  }
+
+  .resume-list,
+  .resume-item div {
+    font-size: 9.5pt !important;
+    color: #333 !important;
+    line-height: 1.4 !important;
+  }
+
+  .resume-list {
+    margin-left: 1rem !important;
+  }
+
   /* GAP AFTER PROJECT AND RESEARCH */
-  #projects { margin-bottom: 5px !important; }
-  #projects + .resume-item { margin-bottom: 15px !important; } /* extra gap for safety */
-  .info-card:nth-of-type(1) { margin-bottom: 30px !important; } /* BIG GAP after first info card (which ends at projects) */
-  
-  .badges-container { gap: 5px !important; margin-top: 5px !important; }
-  .badge { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; padding: 2px 6px !important; font-size: 8.5pt !important; }
-  
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  #projects {
+    margin-bottom: 5px !important;
+  }
+
+  #projects+.resume-item {
+    margin-bottom: 15px !important;
+  }
+
+  /* extra gap for safety */
+  .info-card:nth-of-type(1) {
+    margin-bottom: 30px !important;
+  }
+
+  /* BIG GAP after first info card (which ends at projects) */
+
+  .badges-container {
+    gap: 5px !important;
+    margin-top: 5px !important;
+  }
+
+  .badge {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+    color: #000 !important;
+    padding: 2px 6px !important;
+    font-size: 8.5pt !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
 
 /* --- Added Styles for Contacts, Accordion and Modal --- */
@@ -786,7 +1004,8 @@ body {
 
 .contact-box-link.download-cv-btn {
   background: darkred;
-  color: #fdf5e6; /* warm white */
+  color: #fdf5e6;
+  /* warm white */
   border-color: darkred;
   flex: 0 1 auto;
   min-width: 180px;
@@ -798,13 +1017,15 @@ body {
 }
 
 .highlight-dark {
-  color: #404040; /* 1 shade darker than text-light */
+  color: #404040;
+  /* 1 shade darker than text-light */
   font-weight: 500;
 }
 
 details.resume-accordion {
   margin-top: 0.5rem;
 }
+
 details.resume-accordion summary {
   cursor: pointer;
   color: var(--color-text-light);
@@ -815,21 +1036,26 @@ details.resume-accordion summary {
   gap: 0.5rem;
   padding: 0.3rem 0;
 }
+
 details.resume-accordion summary:hover {
   color: var(--color-red);
 }
+
 details.resume-accordion summary::-webkit-details-marker {
   display: none;
 }
+
 details.resume-accordion summary::after {
   content: '▼';
   font-size: 0.7rem;
   transition: transform 0.3s ease;
   margin-left: 0.2rem;
 }
+
 details.resume-accordion[open] summary::after {
   transform: rotate(180deg);
 }
+
 .accordion-content {
   margin-top: 0.8rem;
   padding-left: 1rem;
@@ -838,22 +1064,24 @@ details.resume-accordion[open] summary::after {
 }
 
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 2000; 
-  left: 0; 
-  top: 0; 
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(0,0,0,0.5); 
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
 }
+
 .modal.show {
   display: flex;
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.3s ease forwards;
 }
+
 .modal-content {
   position: relative;
   background-color: var(--color-white);
@@ -861,8 +1089,9 @@ details.resume-accordion[open] summary::after {
   height: 90%;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
+
 .close-modal {
   position: absolute;
   top: 15px;
@@ -880,13 +1109,15 @@ details.resume-accordion[open] summary::after {
   justify-content: center;
   align-items: center;
   line-height: 1;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
+
 .close-modal:hover {
   background: var(--color-red-dark);
   transform: scale(1.1);
 }
+
 #modalIframe {
   width: 100%;
   height: 100%;
