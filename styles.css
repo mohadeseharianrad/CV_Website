@@ -176,6 +176,19 @@ body {
   box-shadow: 0 4px 10px rgba(158, 27, 50, 0.2);
 }
 
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: color 0.3s ease;
+}
+.mobile-menu-btn:hover {
+  color: var(--color-red);
+}
+
 @media (max-width: 768px) {
   html {
     padding: var(--space-xs);
@@ -195,26 +208,78 @@ body {
   }
 
   .sticky-header-content {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
     gap: var(--space-xs);
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    align-self: flex-start;
+    margin-top: -0.2rem;
   }
 
   .sticky-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-xs);
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-nude-dark);
+    margin-top: 0.5rem;
+  }
+
+  .sticky-nav.active {
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
   }
 
   .sticky-nav a {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
   }
 
   .hero {
     min-height: auto;
     border-radius: 20px;
-    padding: calc(var(--space-xxl) * 2.5) 5% var(--space-lg); /* Compensate missing body padding */
+    padding: calc(var(--space-xxl) * 2.5) 5% var(--space-lg);
+  }
+
+  .info-card {
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+  
+  .sticky-contact {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .sticky-contact a span {
+    display: none;
+  }
+
+  .info-card h2 {
+    font-size: 2rem;
+  }
+  
+  .contact-box-link {
+    font-size: 0.95rem;
+    min-width: 100%;
+  }
+
+  .resume-item-header {
+    flex-direction: column;
+    gap: 0.2rem;
   }
 }
 
